@@ -1,37 +1,74 @@
+/*
+class Node {
+    int data;
+    Node left, right;
+
+    public Node(int d) {
+        data = d;
+        left = right = null;
+    }
+}
+*/
+
 class Solution {
-    public int leastInterval(char[] tasks, int n) {
-        HashMap<Character, Integer> freq = new HashMap<>();
-        for (char ch : tasks) 
-            freq.put(ch, freq.getOrDefault(ch, 0) + 1);
-
-        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
-        for (int f : freq.values()) 
-            pq.add(f);
-
-        int cycle = n + 1;
-        int time = 0;
-
-        while (!pq.isEmpty()) {
-            ArrayList<Integer> arr = new ArrayList<>();
-            int i = 0;
-
-            while (i < cycle && !pq.isEmpty()) {
-                int f = pq.poll();
-                f--;
-                time++;
-
-                if (f > 0) arr.add(f);
-                i++;
-            }
-            if(pq.isEmpty() && arr.isEmpty())
-                break;
-            if (pq.isEmpty())
-                time += (cycle - i);
-
-            for (int rem : arr)
-                pq.add(rem);
+    ArrayList<Integer>ans = new ArrayList<>();
+    bool isLeaf(Node root)
+    {
+        return root!=null && root.left == null && root.right==null;
+    }
+    void leftB(Node root)
+    {
+        Node cur = root;
+        while(cur!=null && isLeaf(cur))
+        {
+            result.add(cur.data);
+            if(cur.left!=null)
+                cur = cur.left;
+            else
+                cur = cur.right;
         }
-
-        return time;
+    }
+    void leaves(Node root)
+    {
+        if(root == null)
+            return;
+        if(isLeaf(root))
+        {
+            result.add(root.data);
+            return;
+        }
+        leaves(root.left);
+        leaves(root.right);
+    }
+    void rightB(Node root)
+    {
+        Node cur = root;
+        Stack<Integer>s = new Stack<>();
+        while(cur!=null && isLeaf(cur))
+        {
+            s.push(cur.data);
+            if(cur.right!=null)
+                cur = cur.right;
+            else
+                cur = cur.left;
+        }
+        while(!s.isEmpty())
+        {
+            result.add(s.pop());
+        }
+    }
+    ArrayList<Integer> boundaryTraversal(Node root) {
+        // code here
+        if(root == null)
+            return ans;
+        if(!isLeaf(root))
+            ans.add(root.data);
+        leftB(root.left);
+        leaves(root);
+        rightB(root.right);
+        return ans;
+        
+        
+        
     }
 }
