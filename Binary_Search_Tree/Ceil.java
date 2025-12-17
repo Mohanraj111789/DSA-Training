@@ -22,3 +22,5 @@ class Solution {
         return ceil;
     }
 }
+//for access the question use below link
+//https://www.geeksforgeeks.org/problems/implementing-ceil-in-bst/1
