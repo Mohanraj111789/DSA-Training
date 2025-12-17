@@ -22,3 +22,5 @@ class Solution {
         
     }
 }
+//for access the question use below link
+//https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/ for accessing the question CTRL+click
