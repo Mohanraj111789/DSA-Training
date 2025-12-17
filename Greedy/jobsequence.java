@@ -28,21 +28,4 @@ class Solution {
         return new int[]{countJobs,jobProfit};
     }
 }
-
-// public class jobsequence {
-//     public static void main(String[] args) {
-//         Scanner sc = new Scanner(System.in);
-//         int n = sc.nextInt();
-//         int[][] Jobs = new int[n][3];
-//         for(int i=0;i<n;i++)
-//         {
-//             Jobs[i][0] = sc.nextInt(); // Job ID
-//             Jobs[i][1] = sc.nextInt(); // Deadline
-//             Jobs[i][2] = sc.nextInt(); // Profit
-//         }
-//         Solution sol = new Solution();
-//         int[] result = sol.JobScheduling(Jobs);
-//         System.out.println(result[0] + " " + result[1]);
-//         sc.close();
-//     }
-// }
+// pro
