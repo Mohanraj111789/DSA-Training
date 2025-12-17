@@ -1,31 +1,37 @@
 class Solution {
-    public int[] JobScheduling(int[][] Jobs) {
-        //your code goes here
-        Arrays.sort(Jobs,(a,b)->b[2]-a[2]);
-        int n = Jobs.length;
-        int maxDeadline = 0;
-        for(int i=0;i<n;i++)
+    public ArrayList<Integer> jobSequencing(int[] deadline, int[] profit) {
+        // code here
+        int n = deadline.length;
+        int maxDead = 0;
+        for(int d : deadline)
         {
-            maxDeadline = Math.max(maxDeadline,Jobs[i][1]);
+            maxDead = Math.max(maxDead,d);
         }
-        int[] slot = new int[maxDeadline+1];
-        Arrays.fill(slot,-1);
+        int slots[] = new int[maxDead+1];
+        Arrays.fill(slots,-1);
+        Integer idx[] = new Integer[n];
+        for(int i=0;i<n;i++)
+            idx[i] = i;
+        Arrays.sort(idx, (a,b) -> profit[b] - profit[a]);
         int countJobs = 0;
         int jobProfit = 0;
         for(int i=0;i<n;i++)
         {
-            for(int j=Jobs[i][1];j>0;j--)
+            int jobIdx = idx[i];
+            for(int j=deadline[jobIdx];j>0;j--)
             {
-                if(slot[j] == -1)
+                if(slots[j] == -1)
                 {
-                    slot[j] = Jobs[i][0];
+                    slots[j] = jobIdx;
                     countJobs++;
-                    jobProfit += Jobs[i][2];
+                    jobProfit += profit[jobIdx];
                     break;
                 }
             }
         }
-        return new int[]{countJobs,jobProfit};
+        ArrayList<Integer> res = new ArrayList<>();
+        res.add(countJobs);
+        res.add(jobProfit);
+        return res;
     }
 }
-// pro
