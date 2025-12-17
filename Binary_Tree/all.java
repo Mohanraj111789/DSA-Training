@@ -12,6 +12,23 @@ import javax.swing.tree.TreeNode;
  *     TreeNode(int x) { val = x; }
  * }
  */
+
+//problem description:
+/*
+Given the root of a binary tree, the value of a target node target, and an integer k,
+return an array of the values of all nodes that have a distance k from the target node.
+Example 1:
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], target = 5, k = 2
+Output: [7,4,1]
+Example 2:
+Input: root = [1], target = 1, k = 3
+Output: []
+
+explanation:
+            The problem involves finding all nodes at a specific distance k from a given target node in a binary tree.
+            3
+        /   \
+ */
 class Solution {
     public List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
         Hash<TreeNode,TreeNode> parentMap = new HashMap<>();
