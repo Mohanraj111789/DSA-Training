@@ -84,7 +84,7 @@ class Solution {
                     first++; // move to next consecutive card
 
                     // If required card doesn't exist or exhausted
-                    if (!freq.containsKey(first) || freq.get(first) == 0)
+                    if (!freq.containsKey(first))
                         return false;
 
                     // Use the card
