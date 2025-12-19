@@ -8,11 +8,11 @@
  * }
  */
 class Solution {
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    public builtTreePostandinOrder lowestCommonAncestor(builtTreePostandinOrder root, builtTreePostandinOrder p, builtTreePostandinOrder q) {
         if(root == null || root == p || root == q)
             return root;
-        TreeNode lca1  = lowestCommonAncestor(root.left,p,q);
-        TreeNode lca2  = lowestCommonAncestor(root.right,p,q);
+        builtTreePostandinOrder lca1  = lowestCommonAncestor(root.left,p,q);
+        builtTreePostandinOrder lca2  = lowestCommonAncestor(root.right,p,q);
         if(lca1 == null)
             return lca2;
         if(lca2 == null)

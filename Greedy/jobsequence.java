@@ -1,37 +1,46 @@
 class Solution {
-    public ArrayList<Integer> jobSequencing(int[] deadline, int[] profit) {
-        // code here
-        int n = deadline.length;
-        int maxDead = 0;
-        for(int d : deadline)
-        {
-            maxDead = Math.max(maxDead,d);
+    class Job {
+        int deadline;
+        int profit;
+        Job(int d, int p) {
+            this.deadline = d;
+            this.profit = p;
         }
-        int slots[] = new int[maxDead+1];
-        Arrays.fill(slots,-1);
-        Integer idx[] = new Integer[n];
-        for(int i=0;i<n;i++)
-            idx[i] = i;
-        Arrays.sort(idx, (a,b) -> profit[b] - profit[a]);
-        int countJobs = 0;
-        int jobProfit = 0;
-        for(int i=0;i<n;i++)
+    }
+    public ArrayList<Integer> jobSequencing(int[] deadline, int[] profit) {
+        int n = deadline.length;
+        Job[] jobs = new Job[n];
+        for (int i = 0; i < n; i++) {
+            jobs[i] = new Job(deadline[i], profit[i]);
+        }
+        Arrays.sort(jobs, (a, b) -> b.profit - a.profit);
+        int maxDeadline = 0;
+        for (int d : deadline) {
+            if (d > maxDeadline) {
+                maxDeadline = d;
+            }
+        }
+        int jobsDone = 0;
+        int totalProfit = 0;
+        int [] slot = new int[maxDeadline + 1];
+        for(int i=0;i<jobs.length;i++)
         {
-            int jobIdx = idx[i];
-            for(int j=deadline[jobIdx];j>0;j--)
+            Job job = jobs[i];
+            for(int j=job.deadline;j>0;j--)
             {
-                if(slots[j] == -1)
+                if(slot[j]==0)
                 {
-                    slots[j] = jobIdx;
-                    countJobs++;
-                    jobProfit += profit[jobIdx];
+                    jobsDone++;
+                    totalProfit+=job.profit;
+                    slot[j]=job.profit;
                     break;
                 }
             }
+
         }
         ArrayList<Integer> res = new ArrayList<>();
-        res.add(countJobs);
-        res.add(jobProfit);
+        res.add(jobsDone);
+        res.add(totalProfit);
         return res;
     }
 }

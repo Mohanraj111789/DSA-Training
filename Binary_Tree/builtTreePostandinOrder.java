@@ -1,10 +1,10 @@
 import java.util.HashMap;
- public class TreeNode {
+ public class builtTreePostandinOrder {
       int val;
       TreeNode left;
       TreeNode right;
-      TreeNode(int val) { this.val = val; }
-      TreeNode(int val, TreeNode left, TreeNode right) {
+      builtTreePostandinOrder(int val) { this.val = val; }
+      builtTreePostandinOrder(int val, TreeNode left, TreeNode right) {
           this.val = val;
           this.left = left;
           this.right = right;
@@ -33,3 +33,5 @@ class Solution {
         
     }
 }
+//problem link: https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/description/
+//for access link cntrl+click on problem link

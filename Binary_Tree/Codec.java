@@ -10,13 +10,13 @@
 public class Codec {
 
     // Encodes a tree to a single string.
-    public String serialize(TreeNode root) {
-        Queue<TreeNode>q = new LinkedList<>();
+    public String serialize(builtTreePostandinOrder root) {
+        Queue<builtTreePostandinOrder>q = new LinkedList<>();
         StringBuilder ans = new StringBuilder();
         if(root == null) return "";
         while(!q.isEmpty())
         {
-            TreeNode cur = q.poll();
+            builtTreePostandinOrder cur = q.poll();
             if(curr == null)
             {
                 ans = ans+"n ";
@@ -33,26 +33,26 @@ public class Codec {
     }
 
     // Decodes your encoded data to tree.
-    public TreeNode deserialize(String data) {
+    public builtTreePostandinOrder deserialize(String data) {
         String[] arr = data.split(" ");
         if(data.length() == 0) return null;
-        Queue<TreeNode> q = new LinkedList<>();
-        TreeNode root = new TreeNode(Integer.parseInt(arr[0]));
+        Queue<builtTreePostandinOrder> q = new LinkedList<>();
+        builtTreePostandinOrder root = new builtTreePostandinOrder(Integer.parseInt(arr[0]));
         q.add(root);
         int i=1;
         while(!q.isEmpty())
         {
-            TreeNode curr = q.poll();
+            builtTreePostandinOrder curr = q.poll();
             if(!arr[i].equals("n"))
             {
-                TreeNode left = new TreeNode(Integer.parseInt(arr[i]));
+                builtTreePostandinOrder left = new builtTreePostandinOrder(Integer.parseInt(arr[i]));
                 curr.left = left;
                 q.add(left);
             }
             i++;
             if(!arr[i].equals("n"))
             {
-                TreeNode right = new TreeNode(Integer.parseInt(arr[i]));
+                builtTreePostandinOrder right = new builtTreePostandinOrder(Integer.parseInt(arr[i]));
                 curr.right = right;
                 q.add(right);
             }
