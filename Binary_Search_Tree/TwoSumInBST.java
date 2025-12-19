@@ -32,3 +32,15 @@ class Solution {
         return found;
     }
 }
+
+//problem link: https://leetcode.com/problems/two-sum-iv-input-is-a-bst/description/
+//for access link cntrl+click on problem link
+
+//which traversal is best suited here ? Inorder traversal because it gives sorted order of elements in BST
+//so we can easily check for k - current node value in the set
+//inorder traversal is used to maintain the BST property while searching for the complement value..
+//preorder or postorder would not maintain the sorted order and may lead to incorrect results
+//thus inorder traversal is the most appropriate choice for this problem
+
+//time complexity: O(n) where n is the number of nodes in the BST
+//space complexity: O(n) for the hash set storing node values
