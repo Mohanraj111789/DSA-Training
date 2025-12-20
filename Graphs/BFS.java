@@ -24,3 +24,7 @@ class Solution {
         
     }
 }
+
+//problem link: https://practice.geeksforgeeks.org/problems/breadth-first-traversal-of-graph/1 access ctrl+click
+//tc: o(V+E)
+//sc: o(V)

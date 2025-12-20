@@ -16,3 +16,6 @@ class Solution {
         return adj;
     }
 }
+//problem link: https://practice.geeksforgeeks.org/problems/print-adjacency-list-1587115620/1  access ctrl+click
+//tc: o(V+E)
+//sc: o(V+E)

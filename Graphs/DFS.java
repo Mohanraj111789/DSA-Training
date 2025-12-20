@@ -20,3 +20,7 @@ class Solution {
         
     }
 }
+
+//problem link: https://practice.geeksforgeeks.org/problems/depth-first-traversal-for-a-graph/1 access ctrl+click
+//tc: o(V+E)    
+//sc: o(V)

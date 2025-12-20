@@ -66,3 +66,8 @@ class Solution {
     }
 }
 */
+
+//problem link: https://leetcode.com/problems/number-of-provinces/ access ctrl+click
+
+//tc: o(V^2)
+//sc: o(V)

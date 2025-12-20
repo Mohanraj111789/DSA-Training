@@ -46,3 +46,6 @@ class Solution {
         
     }
 }
+//problem link: https://leetcode.com/problems/rotting-oranges/  access ctrl+click
+//tc: o(n*m)
+//sc: o(n*m)

@@ -45,3 +45,6 @@ class Solution {
         
     }
 }
+//problem link: https://practice.geeksforgeeks.org/problems/connected-components-in-an-undirected-graph/1  access ctrl+click
+//tc: o(V+E)
+//sc: o(V+E)
