@@ -50,6 +50,67 @@ class Solution {
     }
 }
 
+//space optimization
+
+/*
+class Solution {
+    int[] row = {1,-1,0,0};
+    int[] col = {0,0,-1,1};
+    public int numEnclaves(int[][] grid) {
+        int n = grid.length;
+        int m = grid[0].length;
+        Queue<int[]>q = new LinkedList<>();
+
+        for(int i=0;i<n;i++)
+        {
+            if(grid[i][0] == 1)
+            {
+                q.add(new int[]{i,0});
+            }
+            if(grid[i][m-1] == 1)
+                q.add(new int[]{i,m-1});
+        }
+
+        for(int i=0;i<m;i++)
+        {
+            if(grid[0][i] == 1)
+                q.add(new int[]{0,i});
+            if(grid[n-1][i] == 1)
+                q.add(new int[]{n-1,i});
+        }
+        int ans = 0;
+
+        while(!q.isEmpty())
+        {
+            int[]x = q.poll();
+            int r=x[0];
+            int c = x[1];
+            grid[r][c] = 0;
+            for(int i=0;i<4;i++)
+            {
+                int nr = r+row[i];
+                int nc = c+col[i];
+                if(nr>=0 && nr<n && nc>=0 && nc<m && grid[nr][nc] == 1){
+                    grid[nr][nc] = 0;
+                    q.add(new int[]{nr,nc});
+                }
+            }
+        }
+
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                if(grid[i][j] == 1)
+                    ans++;
+            }
+        }
+        return ans;
+        
+    }
+}
+ */
+
 //BFS Approach
 /*
 class Solution {
@@ -118,3 +179,5 @@ class Solution {
     }
 }
 */
+
+//problem link: https://leetcode.com/problems/number-of-enclaves/description/
