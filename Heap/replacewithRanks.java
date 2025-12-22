@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Solution{
+public class replacewithRanks{
     public static int[] replaceElementsWithRanks(int[] arr) {
         //Write Your Code Here...
         PriorityQueue<int[]>pq = new PriorityQueue<>((a,b)->a[0]-b[0]);

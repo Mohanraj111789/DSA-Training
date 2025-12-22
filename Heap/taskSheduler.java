@@ -1,34 +1,37 @@
 class Solution {
-    public boolean isNStraightHand(int[] hand, int groupSize) {
-        if(hand.length % groupSize != 0)
-            return false;
-        HashMap<Integer,Integer>freq = new HashMap<>();
-        for(int i:hand)
-            freq.put(i,freq.getOrDefault(i,0)+1);
-        PriorityQueue<Integer>pq = new PriorityQueue<>();
-        for(int x:freq.keySet())
-            pq.add(x);
-        while(!pq.isEmpty())
-        {
-            int first = pq.peek();
-            if(freq.get(first)==0)
-            {
-                pq.poll();
+    public int leastInterval(char[] tasks, int n) {
+        HashMap<Character, Integer> freq = new HashMap<>();
+        for (char ch : tasks) 
+            freq.put(ch, freq.getOrDefault(ch, 0) + 1);
 
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+        for (int f : freq.values()) 
+            pq.add(f);
+
+        int cycle = n + 1;
+        int time = 0;
+
+        while (!pq.isEmpty()) {
+            ArrayList<Integer> arr = new ArrayList<>();
+            int i = 0;
+
+            while (i < cycle && !pq.isEmpty()) {
+                int f = pq.poll();
+                f--;
+                time++;
+
+                if (f > 0) arr.add(f);
+                i++;
             }
-            else{
-                freq.put(first,freq.get(first)-1);
-                for(int i=1;i<=groupSize-1;i++)
-                {
-                    ++first;
-                    if(!freq.containsKey(first) || freq.get(first) == 0)
-                        return false;
-                    freq.put(first,freq.get(first)-1);
-                    
-                }
-            }
+            if(pq.isEmpty() && arr.isEmpty())
+                break;
+            if (pq.isEmpty())
+                time += (cycle - i);
+
+            for (int rem : arr)
+                pq.add(rem);
         }
-        return true;
-        
+
+        return time;
     }
 }

@@ -35,7 +35,7 @@ public class Assigncokies {
         {
             s[i] = sc.nextInt();
         }
-        Solution sol = new Solution();
+        replacewithRanks sol = new replacewithRanks();
         int result = sol.findContentChildren(g,s);
         System.out.println(result);
         sc.close();

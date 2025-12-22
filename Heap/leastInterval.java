@@ -10,6 +10,11 @@ class Node {
 }
 */
 
+/*
+problem statement and the problem approach
+
+ */
+
 class Solution {
     ArrayList<Integer>ans = new ArrayList<>();
     bool isLeaf(Node root)
@@ -72,3 +77,4 @@ class Solution {
         
     }
 }
+//problem link 
