@@ -1,30 +1,36 @@
-class Solution
-{
-    public  int[] dijkstra(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj, int S)
-    {
-        int[] dist = new int[V];
-        Arrays.fill(dist, Integer.MAX_VALUE);
-        dist[S] = 0;
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[1] - b[1]);
-        pq.add(new int[]{S, 0});
-
-        while (!pq.isEmpty()) {
+class Solution {
+    public int[] dijkstra(int V, int[][] edges, int src) {
+        // code here
+        ArrayList<ArrayList<int[]>> adj = new ArrayList<>();
+        for(int i=0;i<V;i++)
+            adj.add(new ArrayList<>());
+        for(int[] edge : edges)
+        {
+            adj.get(edge[0]).add(new int[]{edge[1],edge[2]});
+            adj.get(edge[1]).add(new int[]{edge[0],edge[2]});
+        }
+        int[] ans = new int[V];
+        Arrays.fill(ans,Integer.MAX_VALUE);
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a,b)->a[1]-b[1]);
+        pq.add(new int[]{src,0});
+        ans[src] = 0;
+        while(!pq.isEmpty())
+        {
             int[] cur = pq.poll();
             int node = cur[0];
             int cost = cur[1];
-
-            for (ArrayList<Integer> ne : adj.get(node)) {
-                int nextNode = ne.get(0);
-                int weight = ne.get(1);
-
-                if (dist[nextNode] > cost + weight) {
-                    dist[nextNode] = cost + weight;
-                    pq.add(new int[]{nextNode, dist[nextNode]});
+            for(int[] ne:adj.get(node))
+            {
+                int nextNode = ne[0];
+                int weight = ne[1];
+                if(ans[nextNode]>cost+weight)
+                {
+                    ans[nextNode] = cost+weight;
+                    pq.add(new int[]{nextNode,ans[nextNode]});
                 }
             }
         }
-        return dist;
-
-       
+        
+        return ans;
     }
 }
