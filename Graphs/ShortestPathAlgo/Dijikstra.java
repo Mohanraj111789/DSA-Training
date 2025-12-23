@@ -34,3 +34,13 @@ class Solution {
         return ans;
     }
 }
+
+//problem link: https://practice.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1
+//time complexity: O(E log V)
+//space complexity: O(V + E)
+//explanation:
+//The code implements Dijkstra's algorithm to find the shortest path from a source node to all other nodes in a weighted graph.
+//It constructs an adjacency list from the given edges, initializes a distance array with maximum values,
+//and uses a priority queue to explore the graph based on the minimum cost path found so far.
+//As it explores each node, it updates the shortest distance for each neighboring node if a shorter path is found.
+
