@@ -1,3 +1,9 @@
+//problem statement
+/*
+we have n ropes our task is to merge the ropes And get minimum cost
+ */
+//give the testcase
+
 class Solution {
     public static int minCost(int[] arr) {
         // code here
@@ -15,3 +21,4 @@ class Solution {
         return c;
     }
 }
+//problem link 
