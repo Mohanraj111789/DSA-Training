@@ -32,3 +32,7 @@ class Solution {
     }
 }
 //problem link: https://leetcode.com/problems/course-schedule-ii/ access ctrl+click
+//tc: o(V+E)
+//sc: o(V+E) + o(V) + o(V)
+//o(V+E) for adjacency list
+//o(V) for indegree array   o(V) for queue
