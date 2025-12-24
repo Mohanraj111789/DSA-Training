@@ -44,14 +44,14 @@ class Solution {
                 int u = str1.charAt(j) - 'a';
                 int v = str2.charAt(j) - 'a';
                 if (str1.charAt(j) != str2.charAt(j)) {
-                    if (!adj.get(u).contains(v)) {
+                    
                         adj.get(u).add(v);
                         inDegree[v]++;
                     }
 
                     found = true;
                     break;
-                }
+               
             }
             if (!found && str1.length() > str2.length())
                 return "";
@@ -60,3 +60,4 @@ class Solution {
         return bfs(adj, inDegree);
     }
 }
+//problem Link:https://www.geeksforgeeks.org/problems/alien-dictionary/1
