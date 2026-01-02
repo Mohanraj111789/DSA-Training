@@ -1,3 +1,23 @@
+//problem description:
+/*
+There are a total of V courses you have to take, labeled from 0 to V-1. Some courses may have prerequisites,
+ for example to take course 0 you have to first take course 1, which is expressed as a pair: [0,1]
+    Given the total number of courses and a list of prerequisite pairs, is it possible for you to finish all courses?
+    example 1:
+    Input: V = 2, prerequisites = [[1,0]]
+    Output: true
+    Explanation: There are a total of 2 courses to take.
+    To take course 1 you should have finished course 0. So it is possible.
+
+
+example 2:    Input: V = 2, prerequisites = [[1,0],[0,1]]
+    Output: false
+    Explanation: There are a total of 2 courses to take.
+    To take course 1 you should have finished course 0, and to take course 0 you should
+    also have finished course 1. So it is impossible.
+ */
+
+
 class Solution {
     public boolean canFinish(int V, int[][] edges) {
         // code here
@@ -31,12 +51,11 @@ class Solution {
                     q.add(ne);
             }
         }
-        return !(count != V);  
+        return (count == V);  
     }
 }
-//problem link: https://practice.geeksforgeeks.org/problems/course-schedule/1
+//problem link: https://leetcode.com/problems/course-schedule/  Access ctrl+click on link to open
 //tc: o(V+E)
 //sc: o(V+E) + o(V) + o(V)
 //o(V+E) for adjacency list
 //o(V) for indegree array   o(V) for queue
-//access ctrl+click 

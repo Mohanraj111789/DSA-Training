@@ -1,3 +1,29 @@
+/*
+    Given a binary matrix grid of size n x m, the task is to count the number of enclaves.
+    An enclave is a group of 1s that are completely surrounded by 0s on all four sides.
+    You can only move in 4 directions (up, down, left, right).
+    Example:
+    Input: grid = [[1,1,1,0,0],
+                   [0,0,1,0,0],
+                   [1,0,1,0,1],
+                   [0,1,1,1,0]]
+    Output: 3
+    Explanation: The enclaves are the groups of 1s that are not connected to the border.
+    Your Task:
+    You don't need to read input or print anything. Your task is to complete the function numEnclaves() which takes grid as input parameter and returns the count of enclaves.
+    Expected Time Complexity: O(n*m)
+
+
+
+    Approach: DFS
+    Start from the border cells and mark all connected 1s as visited.
+    Then count the remaining 1s that are not visited.
+    
+ */
+
+
+
+
 class Solution {
     int[] row = {1, -1, 0, 0};
     int[] col = {0, 0, -1, 1};
