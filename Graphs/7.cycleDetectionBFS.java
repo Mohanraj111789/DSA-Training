@@ -1,3 +1,41 @@
+/*
+Detect cycle in an undirected graph using BFS
+Given an undirected graph with V vertices and E edges, check whether it contains any cycle or not.
+    Example 1:
+    Input:
+    V = 5, E = 5
+    edges = {{0,1},{1,2},{2,3},{3,4},{4,1}}
+    Output: 1
+    Explanation: The given undirected graph contains a cycle, so return true.
+    Example 2:
+    Input:
+    V = 3, E = 2
+    edges = {{0,1},{1,2}}
+    Output: 0
+    Explanation: The given undirected graph does not contain any cycle, so return false.
+    Your Task:
+    You don't need to read input or print anything. Your task is to complete the function isCycle() which takes the number of vertices V and a list of edges as input parameters and returns true if the graph contains a cycle; otherwise, it returns false.
+    Expected Time Complexity: O(V + E)
+    Expected Auxiliary Space: O(V)
+
+
+    Approach: BFS
+    Use a queue to perform BFS traversal of the graph.
+    Keep track of visited nodes to avoid revisiting them.
+    For each node, check its neighbors. If a neighbor has already been visited and is not the parent of the current node, a cycle is detected.
+
+    Dry Run:
+    Consider the graph with edges: {{0,1},{1,2},{2,3},{3,4},{4,1}}
+    Start BFS from node 0:
+    Visit node 0, mark it as visited.
+    Move to node 1, mark it as visited.
+    Move to node 2, mark it as visited.
+    Move to node 3, mark it as visited.
+    Move to node 4, mark it as visited.
+    Now, check the neighbors of node 4. It has a neighbor node 1, which is already visited and is not the parent of node 4. Hence, a cycle is detected. 
+    */
+
+
 class Solution {
     public boolean bfs(int s,boolean vis[],List<List<Integer>> adj)
     {
